@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrapp{
+            width: 100%;
+            height: 100vh;
+            background-image: url(bg.jpg);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-size: cover;
+        }
+        #progressPlace{
+            z-index: 10;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            left: 0;
+            top: 0;
+            font-size: 60px;
+        }
+
+        #row{
+            width: 0;
+            height: 10px;
+            border-radius: 10px;
+            background-color: rgb(7, 7, 168);
+            position: absolute;
+            top: 0;
+            z-index: 20;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="row"></div>
+    <div id="progressPlace"></div>
+    <div id="wrapp" class="wrapp"></div>
+
+    <script>
+        let s = 0;
+
+        let opacityProgress=1;
+
+        let bgBlur=10;
+
+        wrapp.style.filter='blur('+10+'px)';
+
+        setInterval(function(){
+            if (s<100){
+                s++;
+                progressPlace.innerText=s+'%';
+                opacityProgress=opacityProgress-0.0095;
+                progressPlace.style.opacity=opacityProgress;
+                
+
+                bgBlur=bgBlur-0.1;
+                wrapp.style.filter='blur('+bgBlur+'px)';
+
+                row.style.width=s+'%';
+                row.style.transition='0.3s';
+            }
+        },100)
+    </script>
+</body>
+</html>
